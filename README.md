@@ -5,8 +5,8 @@ A small library to extract terms from an Umbraco Lucene Index. You can use it, i
 
 The library creates a .json file with an array of terms in the /App_Data/ folder, which you can use with fx typeahead.js (https://twitter.github.io/typeahead.js/). The terms-array is made out of the lucene-fields you set up in the FieldNames property.
 
-__IndexPath: __ The path to the Lucene index (default is /App_Data/TEMP/ExamineIndexes/External/Index/).
-**FieldNames: ** An array of fieldsnames you want to extraxt terms from.
+<b>IndexPath: </b> The path to the Lucene index (default is /App_Data/TEMP/ExamineIndexes/External/Index/).
+<b>FieldNames: </b> An array of fieldsnames you want to extraxt terms from.
 
 You can also set an rootId (nodeId) from where to start if you have multiple sites and set min-length on the words to extract.
 
