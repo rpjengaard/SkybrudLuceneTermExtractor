@@ -8,6 +8,11 @@ The library creates a .json file with an array of terms in the /App_Data/ folder
 You can also set an rootId (nodeId) from where to start if you have multiple sites and set min-length on the words to extract.
 
 
+### Install From NuGet ###
+
+https://www.nuget.org/packages/Skybrud.Lucene.TermExtractor/
+
+
 ### Example Controller to save .json file ###
 
 ```
