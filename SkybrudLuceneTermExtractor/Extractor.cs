@@ -109,13 +109,12 @@ namespace Skybrud.Lucene.Term
         /// <param name="fieldNames"></param>
         /// <param name="rootId"></param>
         /// <param name="minLength"></param>
-        public void SaveToJson(int rootId = -1, int minLength = 5)
+        /// <param name="outputPath"></param>
+        public void SaveToJson(int rootId = -1, int minLength = 5, string outputPath = "/App_Data/SkybrudExamineTermsLists")
         {
-            var r = GetTerms(rootId, minLength);
+            var jsonString = AsJson(rootId, minLength);
 
-            var jsonString = JsonConvert.SerializeObject(r.Terms.Select(x => x.Text()));
-
-            var path = HttpContext.Current.Server.MapPath("/App_Data/SkybrudExamineTermsLists");
+            var path = HttpContext.Current.Server.MapPath(outputPath);
 
             if (!System.IO.Directory.Exists(path))
             {
@@ -124,6 +123,21 @@ namespace Skybrud.Lucene.Term
 
             File.WriteAllText(string.Format("{0}/site_{1}.json", path, rootId), jsonString);
         }
+
+        /// <summary>
+        /// Get terms in JSON format
+        /// </summary>
+        /// <param name="fieldNames"></param>
+        /// <param name="rootId"></param>
+        /// <param name="minLength"></param>
+        public string AsJson(int rootId, int minLength)
+        {
+            var wrapper = GetTerms(rootId, minLength);
+
+            var jsonString = JsonConvert.SerializeObject(wrapper.Terms.Select(x => x.Text()));
+            return jsonString;
+        }
+
         #endregion
 
         private DirectoryInfo GetIndexPath()
