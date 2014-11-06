@@ -29,7 +29,7 @@ namespace skybrud.Controllers
                 FieldNames = new string[] { "nodeName", "teaser" }
             };
             
-            lte.SaveToJson(rootId, 5);
+            lte.SaveToJson(rootId, minLength);
         }
     }
 }
